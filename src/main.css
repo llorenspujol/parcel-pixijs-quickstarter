@@ -1,0 +1,4 @@
+.test {
+    /* Reference an image file */
+    background: url('./assets/images/snake.png');
+}
