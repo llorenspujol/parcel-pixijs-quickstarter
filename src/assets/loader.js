@@ -1,33 +1,12 @@
 import snake from './images/snake.png';
-import santasIdle from './images/santa/idle/*';
-import santasWalk from './images/santa/walk/*';
+import bomberFront from './images/Bomberman/Front/*.png';
+import bomberBack from './images/Bomberman/Back/*.png';
+import bomberRight from './images/Bomberman/Right/*.png';
+import bomberLeft from './images/Bomberman/Left/*.png';
 
-console.log('santas idle', santasIdle);
-
-export const santaFrames = {
-    idle: getObjectValuesOrdered(santasIdle),
-    walk: getObjectValuesOrdered(santasWalk),
+export const bomberFrames = {
+    front: Object.values(bomberFront),
+    back: Object.values(bomberBack),
+    right: Object.values(bomberRight),
+    left: Object.values(bomberLeft),
 };
-
-
-function getObjectValuesOrdered(obj) {
-    let keys = Object.keys(obj);
-    console.log('keys 1', keys);
-    keys.sort(compare);
-    console.log('keys 2', keys);
-    return keys.map((key) => obj[key]);
-}
-
-function compare(a, b) {
-
-    const aNumber = parseInt(a.substring(a.indexOf("(")+1,a.indexOf(")")));
-    const bNumber = parseInt(b.substring(b.indexOf("(")+1,b.indexOf(")")));
-    if (aNumber < bNumber) {
-        return -1;
-    }
-    if (aNumber > bNumber) {
-        return 1;
-    }
-    // a debe ser igual b
-    return 0;
-}
