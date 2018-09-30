@@ -6,7 +6,8 @@
     "test": "karma start",
     "start": "parcel src/index.html",
     "build": "npm run clean && parcel build src/index.html --public-url ./",
-    "clean": "rimraf ./dist"
+    "build_serve": "npm run build && http-server ./dist",
+    "clean": "rimraf ./dist ./.cache"
   },
   "author": "Llorenç Pujol Ferriol",
   "license": "MIT",
@@ -23,7 +24,8 @@
     "karma-jasmine": "^1.1.1",
     "karma-typescript": "^3.0.9",
     "karma-typescript-es6-transform": "^1.0.3",
-    "parcel-bundler": "1.9.3",
+    "parcel-bundler": "1.10.1",
+    "http-server": "0.11.1",
     "rimraf": "^2.6.2",
     "typescript": "^2.6.2"
   }
