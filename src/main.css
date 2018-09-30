@@ -1,4 +1,9 @@
-.test {
-    /* Reference an image file */
-    background: url('./assets/images/snake.png');
+body {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+
+canvas {
+    display:block;
 }

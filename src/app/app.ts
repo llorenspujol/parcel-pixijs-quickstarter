@@ -46,8 +46,6 @@ export class PuzzleGame {
         playerIdle.x = 100;
         playerIdle.y = 150;
         playerIdle['vx'] = 1;
-        playerIdle.width = 100;
-        playerIdle.height = 100;
         playerIdle.anchor.set(0, 1);
         // playerIdle.anchor.set(0.5);
         playerIdle.animationSpeed = 0.3;
