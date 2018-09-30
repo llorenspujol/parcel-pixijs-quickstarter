@@ -1,3 +1,3 @@
-import {PuzzleGame} from "./app/app";
+import {GameApp} from "./app/app";
 
-const myGame = new PuzzleGame(document.body,  window.innerWidth, window.innerHeight,);
+const myGame = new GameApp(document.body,  window.innerWidth, window.innerHeight);

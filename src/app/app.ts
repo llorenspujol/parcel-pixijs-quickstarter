@@ -1,18 +1,14 @@
 import { bomberFrames } from '../assets/loader';
-type Sprite = any;
-type Application = any;
-import 'pixi.js';
-let PIXI = (<any>window).PIXI;
+import * as PIXI from 'pixi.js';
 
 // Prepare frames
 const playerFrames = bomberFrames;
-const currentFrame = 'front'
+const currentFrame = 'front';
 
 
-export class PuzzleGame {
+export class GameApp {
 
-    private app: Application;
-    private playerAnimSprites: Array<any>;
+    private app: PIXI.Application;
 
     constructor(parent: HTMLElement, width: number, height: number) {
 
@@ -30,14 +26,11 @@ export class PuzzleGame {
 
         // Load assets
         loader.load(this.onAssetsLoaded.bind(this));
-
     }
-
-
 
     private onAssetsLoaded() {
 
-        const playerIdle = new PIXI.extras.AnimatedSprite(playerFrames[currentFrame].map(path => PIXI.Texture.fromFrame(path))); // PIXI.extras.AnimatedSprite(playerIdleFrames);
+        const playerIdle: PIXI.extras.AnimatedSprite = new PIXI.extras.AnimatedSprite(playerFrames[currentFrame].map(path => PIXI.Texture.fromFrame(path))); // PIXI.extras.AnimatedSprite(playerIdleFrames);
 
         /*
         * An AnimatedSprite inherits all the properties of a PIXI sprite
