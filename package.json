@@ -12,12 +12,12 @@
   "author": "Llorenç Pujol Ferriol",
   "license": "MIT",
   "dependencies": {
-    "@types/jasmine": "^2.8.6",
-    "babel-preset-es2015": "^6.24.1",
-    "pixi.js": "^4.6.2"
+    "pixi.js": "4.8.2"
   },
   "devDependencies": {
-    "@types/pixi.js": "^4.6.3",
+    "@types/pixi.js": "4.8.1",
+    "@types/jasmine": "^2.8.6",
+    "babel-preset-es2015": "^6.24.1",
     "jasmine": "^2.9.0",
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
