@@ -10,10 +10,6 @@
       "es2017",
       "dom"
     ],
-
-    /*"noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,*/
     "types":[
       "jasmine"
     ],
