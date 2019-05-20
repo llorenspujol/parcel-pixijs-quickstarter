@@ -12,11 +12,11 @@ export class GameApp {
 
     constructor(parent: HTMLElement, width: number, height: number) {
 
-        this.app = new PIXI.Application(width, height, {backgroundColor : 0x000000});
+        this.app = new PIXI.Application({width, height, backgroundColor : 0x000000});
         parent.replaceChild(this.app.view, parent.lastElementChild); // Hack for parcel HMR
 
-        // init Pizi loader
-        let loader = new PIXI.loaders.Loader();
+        // init Pixi loader
+        let loader = new PIXI.Loader();
 
         // Add user player assets
         console.log('Player to load', playerFrames);
@@ -30,7 +30,7 @@ export class GameApp {
 
     private onAssetsLoaded() {
 
-        const playerIdle: PIXI.extras.AnimatedSprite = new PIXI.extras.AnimatedSprite(playerFrames[currentFrame].map(path => PIXI.Texture.fromFrame(path))); // PIXI.extras.AnimatedSprite(playerIdleFrames);
+        const playerIdle: PIXI.AnimatedSprite = new PIXI.AnimatedSprite(playerFrames[currentFrame].map(path => PIXI.Texture.from(path)));
 
         /*
         * An AnimatedSprite inherits all the properties of a PIXI sprite
