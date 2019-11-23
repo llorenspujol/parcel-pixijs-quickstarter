@@ -12,7 +12,7 @@
   "author": "Llorenç Pujol Ferriol",
   "license": "MIT",
   "dependencies": {
-    "pixi.js": "~5.0.3"
+    "pixi.js": "~5.2.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",

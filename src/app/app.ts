@@ -1,9 +1,18 @@
 import { bomberFrames } from '../assets/loader';
 import * as PIXI from 'pixi.js';
 
+interface BomberFrames {
+    front: string[];
+    back: string[];
+    right: string[];
+    left:  string[];
+}
+
 // Prepare frames
-const playerFrames = bomberFrames;
-const currentFrame = 'front';
+const playerFrames: BomberFrames = bomberFrames;
+
+// IMPORTANT: Change this value in order to see the Hot Module Reloading!
+const currentFrame: keyof BomberFrames = 'front';
 
 
 export class GameApp {
