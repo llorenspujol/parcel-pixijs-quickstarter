@@ -8,7 +8,7 @@ Example App using pixiJS and Typescript bundled with parcel 🚀🔥.
 - 👮  Unit testing.
 
 ### Quick start
-**Node version >= 8.0 (recommended 10.6.0) and NPM >= 5 (recommended 6.1.0)**
+**Node version >= 10.6.0 (recommended 12.16.2) and NPM >= 6.1.0 (recommended 6.14.4)**
 
 ```bash
 # clone the repo.
