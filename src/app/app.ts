@@ -15,9 +15,11 @@ const playerFrames: BomberFrames = bomberFrames;
 const currentFrame: keyof BomberFrames = 'front';
 
 // Graphics Class
-var graphics = new PIXI.Graphics();
+
 
 const gravity = 8.31;
+
+
 
 export class GameApp {
 
@@ -25,23 +27,49 @@ export class GameApp {
 
     private shape : Shape;
 
+    private shapes = new Array<Shape>();
+    private index = 0;
+
+    private numberToSpawn = 4;
+
     constructor(parent: HTMLElement, width: number, height: number) {
 
         this.app = new PIXI.Application({width, height, backgroundColor : 0x000000});
         parent.replaceChild(this.app.view, parent.lastElementChild); // Hack for parcel HMR
-        graphics = new PIXI.Graphics();
-        
-        const newshape = new Shape(200, 100, this.getApp());
-        this.shape = newshape;
-
+        this.CreateShapeArray();
     }
+
+    // Creating a shape array
+    private CreateShapeArray(){
+          
+        this.shapes.splice(0);
+
+        do{
+            var newX = Math.random() * (window.innerHeight + 100);
+            var newY = window.innerHeight - (window.innerHeight + 250);
+            var newshape = new Shape(newX, newY, this.getApp());
+            this.shapes.push(newshape);
+            this.numberToSpawn -= 1;
+        }
+        while(this.numberToSpawn != 0)
+    }
+
 
     public getApp(){
         return this.app;
     }    
 
     public update(delta){
-        this.shape.Move(delta);
+   
+
+        if(this.shapes.length != 0){
+
+        this.shapes.forEach(element => {
+            element.Move(delta);
+        });
+        }
+
+    
     }
 
     public SetShape(shape : Shape){
@@ -53,28 +81,35 @@ export class GameApp {
 export class Shape {
     private x : number;
     private y : number;
+    private weight : number;
+    private graphics : PIXI.Graphics;
 
     constructor(x: number, y : number, app: PIXI.Application){
         this.x = x;
         this.y = y;
+        this.weight = Math.random() * 3;
 
-        graphics.beginFill(0xDE3249);
-        graphics.drawRect(50, 50, x, y);
-        graphics.endFill();
-        app.stage.addChild(graphics);
+        this.graphics = new PIXI.Graphics();
+
+        this.graphics.beginFill(0xDE3249);
+        this.graphics.drawRect(50, 50, 100, 100);
+        this.graphics.endFill();
+        this.graphics.x = this.x;
+        this.graphics.y = this.y;
+        app.stage.addChild(this.graphics);
 
         
     }
 
     public Move(delta){
-        this.y += delta * 1 * gravity;
-        graphics.y = this.y;
+        this.y += delta * 1 * gravity * this.weight;
+        this.graphics.y = this.y;
         
         if(this.y > window.innerHeight){
             this.x = Math.random() * (window.innerHeight + 50);
             this.y = window.innerHeight - (window.innerHeight + 250);
-            graphics.x = this.x;
-            graphics.y = this.y;
+            this.graphics.x = this.x;
+            this.graphics.y = this.y;
         }
         
 
