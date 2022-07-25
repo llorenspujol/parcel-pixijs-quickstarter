@@ -209,8 +209,6 @@ class Rectangle extends Shape {
         this.graphics.x = this.x;
         this.graphics.y = this.y;
         app.stage.addChild(this.graphics);
-        
-        //container.addChild(this.graphics);
     }
 
     public Move(delta: any): void {
